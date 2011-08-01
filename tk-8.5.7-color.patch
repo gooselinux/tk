@@ -1,0 +1,10 @@
+--- tk8.5.7/generic/tkColor.c.color	2007-12-13 16:24:13.000000000 +0100
++++ tk8.5.7/generic/tkColor.c	2009-12-09 19:22:12.207246662 +0100
+@@ -302,6 +302,7 @@
+      * First, check to see if there's already a mapping for this color name.
+      */
+ 
++    memset(&valueKey, 0, sizeof(valueKey));
+     valueKey.red = colorPtr->red;
+     valueKey.green = colorPtr->green;
+     valueKey.blue = colorPtr->blue;

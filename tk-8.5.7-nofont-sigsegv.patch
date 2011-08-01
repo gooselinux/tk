@@ -1,0 +1,16 @@
+--- tk8.5.7/generic/tkFont.c.old	2009-03-04 00:54:11.000000000 +0100
++++ tk8.5.7/generic/tkFont.c	2010-06-24 17:49:20.191702270 +0200
+@@ -1194,6 +1194,13 @@ Tk_AllocFontFromObj(
+ 	}
+     }
+ 
++	if (fontPtr == NULL) {
++		if (isNew) {
++			Tcl_DeleteHashEntry(cacheHashPtr);
++		}
++		return NULL;
++	}
++
+     fontPtr->resourceRefCount = 1;
+     fontPtr->objRefCount = 1;
+     fontPtr->cacheHashPtr = cacheHashPtr;
